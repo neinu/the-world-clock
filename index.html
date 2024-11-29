@@ -4,41 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.37/moment-timezone-with-data-1970-2030.min.js"></script>
     <title>The-World-Clock by Noma</title>
 
 </head>
 <body>
     <div class="container">
     <h1>The-World-Clock</h1>
-    <select>
-        <option value="">Seleect a city...</option>
+    <select id="city">
+        <option value="">Select a city...</option>
         <option value="">Rome</option>
         <option value="">Seatle</option>
         <option value="">San-Francisco</option>
         <option value="">Honolulu</option>
     </select>
-    
-     <div class="city">
+
+    <div id="cities">
+        <div class="city" id="austin">
+            <div>
       <h2>Austin</h2>
-        <div class="date">November 29th 2024</div>
-        <div class="time">7:49:12 AM</div>
+        <div class="date"></div>
+        <div class="time"> </div>
+        </div>
+    
 
+     <div class="city" id="milan">
+        <h2>Milan</h2>
+        <div>
+       <div class="date"></div>
+       <div class="time"></div>
+    </div>
 
-     <div class="city">
-      <h2>Milan</h2>
-       <div class="date">November 29th 2024</div>
-       <div class="time">7:49:12 AM</div>
-
-
-     <div class="city">
+       <div class="city" id="perth">
       <h2>Perth</h2>
-        <div class="date">November 29th 2024</div>
-        <div class="time">7:49:12 AM</div>
-        
+      <div>
+        <div class="date"></div>
+        <div class="time"></div>
+      </div>
      </div>
     </div>
     <footer>
-        This project was coded by Nomagugu Maseko and is 
+        This project was coded by <strong>Nomagugu Maseko</strong> and is 
          <a href="https://the-world-clock-by-noma.netlify.app/"
           target="_blankopen" sourced on Github></a>
         </footer>
