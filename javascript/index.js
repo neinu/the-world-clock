@@ -1,32 +1,36 @@
- function updateTime() {
-    //Austin
-    let austinElement = document.querySelector("#austin");
-    let austinDateElement = austinElement.querySelector("date");
-    let austinTimeElement = austinElement.querySelector("time");
-    let austinTime = moment().tz("America/Austin");
-    austinDateElement.innerHTML = austinTime.format("MMMM Do YYYY");
-    austinTimeElement.innerHTML = austinTime.format("h:mm:ss [<small>A</small>");
+function updateTime() {
+  // Los Angeles
+  let losAngelesElement = document.querySelector("#los-angeles");
+  if (losAngelesElement) {
+    let losAngelesDateElement = losAngelesElement.querySelector(".date");
+    let losAngelesTimeElement = losAngelesElement.querySelector(".time");
+    let losAngelesTime = moment().tz("America/Los_Angeles");
 
-    //Milan
-    let milanElement = document.querySelector("#milan");
-    let milanDateElement = milanElement.querySelector("date");
-    let milanTimeElement = querySelector("time");
-    let milanTime = moment().tz("Europe/Milan");
-    milanDateElement.innerHTML = milanTime.format("MMMM Do YYYY");
-    milanTimeElement.innerHTML = milanTime.format("h:mm:ss [<small>A</small>");
+    losAngelesDateElement.innerHTML = losAngelesTime.format("MMMM	Do YYYY");
+    losAngelesTimeElement.innerHTML = losAngelesTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
 
-    //Perth
-    let perthElement = document.querySelector("#perth");
-    let perthDateElement = perthElement.querySelector("date");
-    let perthTimeElement = perthElement.querySelector("time");
-    let perthTime = moment().tz("Australia/Perth");
-    perthDateElement.innerHTML = perthTime.format("MMMM Do YYYY");
-    perthTimeElement.innerHTML = perthTime.format("h:mm:ss [<small>A</small>");
+  // Paris
+  let parisElement = document.querySelector("#paris");
+  if (parisElement) {
+    let parisDateElement = parisElement.querySelector(".date");
+    let parisTimeElement = parisElement.querySelector(".time");
+    let parisTime = moment().tz("Europe/Paris");
 
- }
+    parisDateElement.innerHTML = parisTime.format("MMMM	Do YYYY");
+    parisTimeElement.innerHTML = parisTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
+}
 
- function updateCity(event) {
+function updateCity(event) {
   let cityTimeZone = event.target.value;
+  if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess();
+  }
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
   let citiesElement = document.querySelector("#cities");
@@ -40,15 +44,12 @@
     "A"
   )}</small></div>
   </div>
+  <a href="/">All cities</a>
   `;
 }
 
+updateTime();
+setInterval(updateTime, 1000);
 
-
-    updateTime();
-    setInterval(updateTime, 1000);
-
-    let citiesSelectElement = document.querySelector("#city");
+let citiesSelectElement = document.querySelector("#city");
 citiesSelectElement.addEventListener("change", updateCity);
-
- 
